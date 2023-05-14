@@ -1,5 +1,6 @@
 import React from 'react';
 import { tuple } from './../_util/type';
+import { insertSpace, spaceChildren } from './buttonHelpers';
 import type { ButtonHTMLType, ButtonShape, ButtonType } from './buttonHelpers';
 
 export type BaseButtonProps = {
@@ -30,6 +31,13 @@ export type NativeButtonProps = {
   Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'onClick'>;
 
 export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
+
+const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref) => {
+  const { children } = props;
+
+  const kids = children || children === 0 ? children : undefined;
+  return <span>j</span>;
+};
 
 const Button = () => {
   return <div>Button</div>;

@@ -33,6 +33,12 @@ export function insertSpace(child: React.ReactChild, needInserted: boolean) {
   return child;
 }
 
+export function spaceChildren(children: React.ReactNode, needInserted: boolean) {
+  const childList: React.ReactNode[] = [];
+
+  React.Children.forEach(children, (child) => {});
+}
+
 const ButtonTypes = ['default', 'primary', 'ghost', 'dashed', 'link', 'text'] as const;
 export type ButtonType = (typeof ButtonTypes)[number];
 

@@ -1,6 +1,11 @@
 import React from 'react';
 
-function Chil(props: { children: React.ReactElement }) {
+import './index.less';
+
+function Chil(props: any) {
+  React.Children.forEach(props.children, (i, index) => {
+    console.log(i, index, 'i');
+  });
   return props.children;
 }
 
@@ -8,10 +13,8 @@ const App = () => {
   return (
     <div>
       <Chil>
-        <div className=';'></div>
-        <div className=';'></div>
-        <div className=';'></div>
-        <div className=';'></div>
+        <span>11</span>
+        <span>11</span> <span>11</span> <span>11</span>
       </Chil>
     </div>
   );
