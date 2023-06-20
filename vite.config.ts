@@ -7,10 +7,8 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: [
-      { find: '@', replacement: resolve(__dirname, 'src') },
-      { find: '@utils', replacement: resolve(__dirname, 'src/utils') },
-      { find: '@config', replacement: resolve(__dirname, 'src/config') },
-      { find: '@hooks', replacement: resolve(__dirname, 'src/hooks') },
-    ],
-  },
+      { find: '@', replacement: resolve(__dirname, './') },
+      { find: '@c', replacement: resolve(__dirname, './components') }
+    ]
+  }
 });

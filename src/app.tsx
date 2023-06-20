@@ -1,21 +1,18 @@
 import React from 'react';
 
-import './index.less';
+import Space from '../components/space';
 
-function Chil(props: any) {
-  React.Children.forEach(props.children, (i, index) => {
-    console.log(i, index, 'i');
-  });
-  return props.children;
-}
+import './index.less';
 
 const App = () => {
   return (
-    <div>
-      <Chil>
-        <span>11</span>
-        <span>11</span> <span>11</span> <span>11</span>
-      </Chil>
+    <div className='flex justify-center items-center w-full h-screen'>
+      <div className='w-96 h-96 bg-slate-100'>
+        <Space>
+          <div>1</div>
+          {[<div>1</div>, null, undefined, <div>1</div>]}
+        </Space>
+      </div>
     </div>
   );
 };
