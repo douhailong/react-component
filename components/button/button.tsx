@@ -39,9 +39,22 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (
     props,
     ref
 ) => {
-    const { children } = props;
+    const {
+        loading = false,
+        type = 'default',
+        shape = 'default',
+        danger,
+        className,
+        icon,
+        ghost,
+        block,
+        disabled,
+        size,
+        children
+    } = props;
 
-    const kids = children || children === 0 ? children : undefined;
+    const kids =
+        children || children === 0 ? spaceChildren(children, true) : null;
     return <span>j</span>;
 };
 

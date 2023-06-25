@@ -1,17 +1,17 @@
 // 检查是否支持 flex gap
 export function checkSupportedFlex() {
-    const div = document.createElement('div');
+    const flexEle = document.createElement('div');
 
-    div.style.display = 'flex';
-    div.style.flexDirection = 'column';
-    div.style.rowGap = '1px';
-    div.appendChild(document.createElement('div'));
-    div.appendChild(document.createElement('div'));
-    document.body.appendChild(div);
+    flexEle.style.display = 'flex';
+    flexEle.style.flexDirection = 'column';
+    flexEle.style.rowGap = '1px';
+    flexEle.appendChild(document.createElement('div'));
+    flexEle.appendChild(document.createElement('div'));
+    document.body.appendChild(flexEle);
 
-    const supported = div.scrollHeight === 1;
+    const supported = flexEle.scrollHeight === 1;
 
-    document.body.removeChild(div);
+    document.body.removeChild(flexEle);
 
     return supported;
 }

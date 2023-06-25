@@ -16,7 +16,7 @@ export function toArray(
 
         if (Array.isArray(child)) {
             ret = [...ret, ...toArray(child)];
-        } else if (isFragment(child) && child?.props) {
+        } else if (isFragment(child) && child?.props?.children) {
             ret = [...ret, ...toArray(child?.props?.children, option)];
         } else {
             ret.push(child);

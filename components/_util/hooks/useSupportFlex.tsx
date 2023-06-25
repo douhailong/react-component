@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { checkSupportedFlex } from '../checker';
 
-export default () => {
+export default function useSupportFlex() {
     const [supported, setSupported] = useState(false);
 
     useEffect(() => {
@@ -9,4 +9,4 @@ export default () => {
     }, []);
 
     return supported;
-};
+}
