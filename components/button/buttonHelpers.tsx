@@ -8,6 +8,10 @@ export function isString(string: unknown) {
     return typeof string === 'string';
 }
 
+export function isHasBorder(buttonType: ButtonType) {
+    return !(buttonType === 'text' || buttonType === 'link');
+}
+
 export function insertSpace(child: React.ReactChild, needInserted: boolean) {
     if (child === null || child === undefined) return;
 

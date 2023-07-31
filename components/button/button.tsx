@@ -1,6 +1,6 @@
 import React from 'react';
 import { tuple } from './../_util/type';
-import { insertSpace, spaceChildren } from './buttonHelpers';
+import { insertSpace, spaceChildren, isHasBorder } from './buttonHelpers';
 import type { ButtonHTMLType, ButtonShape, ButtonType } from './buttonHelpers';
 
 export type BaseButtonProps = {
@@ -46,15 +46,22 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (
         danger,
         className,
         icon,
-        ghost,
-        block,
+        ghost = false,
+        block = false,
         disabled,
         size,
-        children
+        children,
+        ...rest
     } = props;
 
+    const isNeedInsertSpace = () => {
+        return React.Children.count(children) === 1 && isHasBorder(type);
+    };
+
     const kids =
-        children || children === 0 ? spaceChildren(children, true) : null;
+        children || children === 0
+            ? spaceChildren(children, isNeedInsertSpace())
+            : null;
     return <span>j</span>;
 };
 

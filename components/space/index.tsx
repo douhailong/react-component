@@ -15,7 +15,7 @@ export const SpaceContext = createContext({
 });
 
 const prefix = 'rc-space';
-const SizeTypes = tuple('large', 'middle', 'small');
+const SizeTypes = ['large', 'middle', 'small'] as const;
 
 export type SizeType = (typeof SizeTypes)[number];
 export type SpaceSize = SizeType | number;
@@ -36,7 +36,7 @@ const spaceSize = {
 };
 
 function getSpaceSize(size: SpaceSize) {
-    return typeof size === 'string' ? spaceSize[size] : size || 0;
+    return typeof size === 'string' ? spaceSize[size] : size;
 }
 
 const Space: React.FC<Partial<SpaceProps>> = props => {
@@ -52,16 +52,15 @@ const Space: React.FC<Partial<SpaceProps>> = props => {
         ...restProps
     } = props;
 
-    const childNodes = toArray(children, { keepEmpty: true });
-
     const supportFlex = useSupportFlex();
+    const childNodes = toArray(children, { keepEmpty: true });
 
     if (!childNodes.length) {
         return null;
     }
 
     const mergedAlign =
-        align === undefined && direction === 'horizontal' ? 'center' : align;
+        direction === 'horizontal' && align === undefined ? 'center' : align;
     const cla = classNames(
         prefix,
         `${prefix}-${direction}`,
