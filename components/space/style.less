@@ -4,31 +4,31 @@
 @space-item-cls: ~'@{space-cls}-item';
 
 .@{space-cls} {
-    display: inline-flex;
+  display: inline-flex;
 
-    &-vertical {
-        flex-direction: column;
+  &-vertical {
+    flex-direction: column;
+  }
+
+  &-align {
+    &-center {
+      align-items: center;
     }
 
-    &-align {
-        &-center {
-            align-items: center;
-        }
-
-        &-start {
-            align-items: start;
-        }
-
-        &-end {
-            align-items: end;
-        }
-
-        &-baseline {
-            align-items: baseline;
-        }
+    &-start {
+      align-items: start;
     }
+
+    &-end {
+      align-items: end;
+    }
+
+    &-baseline {
+      align-items: baseline;
+    }
+  }
 }
 
 .@{space-item-cls}:empty {
-    display: none;
+  display: none;
 }
